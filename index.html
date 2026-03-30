@@ -2,868 +2,228 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Tatum — Telling A Truth Uniquely Mine</title>
 <meta name="description" content="Tatum is a private intimacy tracker for women. Your story. Your proof. Your power. Available on iOS and Android.">
-<meta name="keywords" content="intimacy tracker, women's wellness, private app, relationship tracking, women empowerment">
 <meta property="og:title" content="Tatum — Your Story. Your Proof. Your Power.">
 <meta property="og:description" content="A private intimacy tracker built for women. No accounts. No cloud. Only yours.">
 <meta property="og:url" content="https://tatumapp.com">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   RESET & ROOT
-═══════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{background:#FBF7F2;color:#3D2B25;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;width:100%;max-width:100vw}
+:root{
+  --sand:#F5EFE8;--cream:#FBF7F2;--fig:#7C4A5A;--fig2:#5A3040;
+  --mauve:#B07080;--terra:#C07858;--gold:#C4993A;--blush:#E8C4B0;
+  --ink:#3D2B25;--muted:#A08878;--stone:#9A8878;
+}
+img,svg{max-width:100%;height:auto}
 
-:root {
-  --sand:    #F5EFE8;
-  --cream:   #FBF7F2;
-  --surface: #EDE3D8;
-  --fig:     #7C4A5A;
-  --fig2:    #5A3040;
-  --mauve:   #B07080;
-  --terra:   #C07858;
-  --gold:    #C4993A;
-  --blush:   #E8C4B0;
-  --sage:    #8BA888;
-  --ink:     #3D2B25;
-  --muted:   #A08878;
-  --stone:   #9A8878;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(251,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,120,88,0.12)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-wordmark{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:5px;color:#C07858}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#A08878;text-decoration:none;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:#C07858}
+.nav-cta{background:#7C4A5A;color:#F5EFE8!important;padding:9px 20px;border-radius:50px}
+.nav-cta:hover{background:#5A3040!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#7C4A5A;border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(251,247,242,0.98);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:28px;color:#3D2B25;text-decoration:none;letter-spacing:2px}
+.mobile-menu a:hover{color:#C07858}
+.mobile-close{position:absolute;top:24px;right:24px;font-size:28px;cursor:pointer;color:#A08878;background:none;border:none}
 
-html { scroll-behavior: smooth; }
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:110px 5% 80px;background:linear-gradient(160deg,#FBF7F2 0%,#F5EFE8 55%,#EDE3D8 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(192,120,88,0.09);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(196,153,58,0.07);pointer-events:none}
+.hero-inner{max-width:1100px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C07858;font-weight:500;margin-bottom:18px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);font-weight:700;line-height:1.1;color:#3D2B25;margin-bottom:20px}
+.hero-title em{font-style:italic;color:#7C4A5A}
+.hero-sub{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#A08878;line-height:1.75;margin-bottom:20px}
+.hero-privacy{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#9A8878;margin-bottom:16px}
+.price-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,153,58,0.1);border:1px solid rgba(196,153,58,0.28);border-radius:50px;padding:7px 18px;font-size:12px;color:#C4993A;letter-spacing:1px;margin-bottom:32px;font-weight:500}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:#7C4A5A;color:#F5EFE8;padding:15px 32px;border-radius:50px;font-size:13px;font-weight:500;letter-spacing:1px;text-decoration:none;transition:all .25s;box-shadow:0 6px 24px rgba(124,74,90,0.28)}
+.btn-primary:hover{background:#5A3040;transform:translateY(-2px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#C07858;padding:15px 32px;border-radius:50px;border:1px solid rgba(192,120,88,0.32);font-size:13px;letter-spacing:1px;text-decoration:none;transition:all .25s}
+.btn-secondary:hover{background:rgba(192,120,88,0.06);transform:translateY(-2px)}
+.hero-bloom{display:flex;justify-content:center;align-items:center}
+.bloom-float{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+/* SECTIONS */
+.section{padding:90px 5%}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C07858;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-tag::after{content:'';flex:0 0 36px;height:1px;background:#C07858;opacity:.4}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,50px);font-weight:700;line-height:1.15;color:#3D2B25;margin-bottom:18px}
+.section-title em{font-style:italic;color:#7C4A5A}
+.section-body{font-size:16px;color:#A08878;line-height:1.85;max-width:540px}
 
-/* ═══════════════════════════════════════════
-   BLOOM SVG COMPONENT
-═══════════════════════════════════════════ */
-.bloom-svg { display: block; }
+/* PULL QUOTE */
+.pull-quote-section{background:#7C4A5A;padding:80px 5%}
+.pull-quote{max-width:860px;margin:0 auto;text-align:center}
+.pull-quote p{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,42px);font-style:italic;color:#F5EFE8;line-height:1.55;margin-bottom:20px}
+.pull-quote cite{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E8C4B0;opacity:.6;font-style:normal}
 
-/* ═══════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════ */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(251,247,242,0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(192,120,88,0.1);
-  transition: all 0.3s ease;
-}
+/* ORIGIN */
+.origin{background:#F5EFE8}
+.origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.origin-text p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:#3D2B25;line-height:1.9;margin-bottom:18px}
+.origin-text p strong{font-style:normal;color:#7C4A5A;font-weight:600}
+.notebook-card{background:#FBF7F2;border-radius:20px;padding:36px 32px;border:1px solid rgba(192,120,88,0.16);box-shadow:0 8px 36px rgba(61,43,37,0.08);position:relative;overflow:hidden}
+.notebook-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,#C07858,#7C4A5A);border-radius:20px 0 0 20px}
+.notebook-title{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:3px;color:#9A8878;text-transform:uppercase;margin-bottom:20px;padding-left:16px}
+.notebook-entry{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(192,120,88,0.1);font-family:'Playfair Display',serif}
+.notebook-entry:last-of-type{border-bottom:none}
+.notebook-date{font-size:12px;color:#A08878;min-width:56px}
+.notebook-initial{font-size:18px;color:#C07858;font-weight:600;min-width:24px}
+.notebook-dot{font-size:16px}
+.notebook-quote{margin-top:20px;padding:14px 16px;background:rgba(192,120,88,0.07);border-radius:12px;text-align:center;font-family:'Playfair Display',serif;font-size:13px;color:#7C4A5A;font-style:italic}
 
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-.nav-wordmark {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  color: var(--terra);
-}
+/* FEATURES */
+.features{background:#FBF7F2}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.feature-card{background:#F5EFE8;border-radius:20px;padding:36px 28px;border:1px solid rgba(192,120,88,0.12);transition:all .3s}
+.feature-card:hover{transform:translateY(-5px);box-shadow:0 14px 44px rgba(61,43,37,0.1);border-color:rgba(192,120,88,0.28)}
+.feature-icon{font-size:32px;margin-bottom:16px;display:block}
+.feature-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:#3D2B25;margin-bottom:10px}
+.feature-body{font-size:14px;color:#A08878;line-height:1.8}
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 400;
-}
-.nav-links a:hover { color: var(--terra); }
+/* PRIVACY DARK */
+.privacy-section{background:#3D2B25}
+.privacy-section .section-tag{color:#E8C4B0}
+.privacy-section .section-tag::after{background:#E8C4B0}
+.privacy-section .section-title{color:#F5EFE8}
+.privacy-section .section-title em{color:#E8C4B0}
+.privacy-section .section-body{color:rgba(232,196,176,.65)}
+.privacy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.privacy-item{background:rgba(245,239,232,.06);border:1px solid rgba(245,239,232,.1);border-radius:16px;padding:28px 24px}
+.privacy-item-icon{font-size:26px;margin-bottom:14px;display:block}
+.privacy-item-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#F5EFE8;margin-bottom:8px}
+.privacy-item-body{font-size:13px;color:rgba(232,196,176,.6);line-height:1.75}
 
-.nav-cta {
-  background: var(--fig);
-  color: #FBF7F2 !important;
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-size: 11px !important;
-  letter-spacing: 2px !important;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--fig2) !important; color: #FBF7F2 !important; }
+/* FOR HER */
+.for-her{background:#F5EFE8}
+.for-her-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
+.her-card{background:#FBF7F2;border-radius:16px;padding:28px 24px;border:1px solid rgba(192,120,88,0.12);display:flex;gap:16px;align-items:flex-start;transition:border-color .25s}
+.her-card:hover{border-color:#B07080}
+.her-emoji{font-size:26px;flex-shrink:0;margin-top:2px}
+.her-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#3D2B25;margin-bottom:6px}
+.her-body{font-size:13px;color:#A08878;line-height:1.75}
 
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 48px 80px;
-  background: linear-gradient(160deg, #FBF7F2 0%, #F5EFE8 50%, #EDE3D8 100%);
-}
+/* PRICING */
+.pricing{background:#FBF7F2;text-align:center}
+.pricing-card{max-width:500px;margin:52px auto 0;background:#F5EFE8;border-radius:28px;padding:52px 44px;border:1px solid rgba(192,120,88,0.18);box-shadow:0 14px 52px rgba(61,43,37,0.09);position:relative;overflow:hidden}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C07858,#7C4A5A,#C4993A)}
+.pricing-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C07858;font-weight:500;margin-bottom:18px}
+.pricing-price{font-family:'Playfair Display',serif;font-size:76px;font-weight:700;color:#7C4A5A;line-height:1;margin-bottom:4px}
+.pricing-price sup{font-size:32px;vertical-align:super}
+.pricing-period{font-size:13px;color:#A08878;margin-bottom:32px;font-style:italic;font-family:'Playfair Display',serif}
+.pricing-features{list-style:none;margin-bottom:36px;text-align:left}
+.pricing-features li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(192,120,88,0.1);font-size:14px;color:#3D2B25}
+.pricing-features li:last-child{border-bottom:none}
+.pricing-check{color:#C07858;font-size:13px;flex-shrink:0}
+.pricing-btn{display:block;width:100%;background:#7C4A5A;color:#F5EFE8;padding:17px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:1.5px;text-decoration:none;transition:all .25s;box-shadow:0 6px 24px rgba(124,74,90,0.28);margin-bottom:14px}
+.pricing-btn:hover{background:#5A3040;transform:translateY(-2px)}
+.pricing-note{font-size:11px;color:#9A8878;letter-spacing:.5px}
 
-/* Atmospheric rings */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -200px; right: -200px;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  border: 1px solid rgba(192,120,88,0.1);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -150px; left: -150px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  border: 1px solid rgba(196,153,58,0.08);
-  pointer-events: none;
-}
+/* FOUNDER */
+.founder{background:linear-gradient(160deg,#7C4A5A 0%,#5A3040 100%);padding:100px 5%;text-align:center}
+.founder-inner{max-width:760px;margin:0 auto}
+.founder-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#E8C4B0;opacity:.6;margin-bottom:18px}
+.founder-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,38px);font-style:italic;color:#F5EFE8;line-height:1.55;margin-bottom:28px}
+.founder-body{font-size:15px;color:rgba(232,196,176,.78);line-height:1.9;margin-bottom:18px;font-family:'Playfair Display',serif;font-style:italic}
+.founder-sig{font-family:'Playfair Display',serif;font-size:18px;color:#E8C4B0;margin-top:36px}
+.founder-sig-title{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,196,176,.45);margin-top:6px;font-family:'DM Sans',sans-serif}
 
-.hero-inner {
-  max-width: 1100px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
+/* CTA */
+.cta-section{background:#F5EFE8;text-align:center;padding:110px 5%}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:#3D2B25;margin-bottom:14px;line-height:1.15}
+.cta-title em{font-style:italic;color:#7C4A5A}
+.cta-sub{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#A08878;margin-bottom:44px}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-note{margin-top:28px;font-size:11px;color:#9A8878;letter-spacing:1px}
 
-.hero-text { position: relative; z-index: 1; }
+/* FOOTER */
+footer{background:#3D2B25;padding:60px 5% 36px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:52px;padding-bottom:44px;border-bottom:1px solid rgba(245,239,232,.1);margin-bottom:28px}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:6px;color:#C07858;margin-bottom:6px}
+.footer-tagline{font-size:11px;letter-spacing:2px;color:rgba(232,196,176,.45);font-style:italic;margin-bottom:16px;font-family:'Playfair Display',serif}
+.footer-desc{font-size:13px;color:rgba(232,196,176,.5);line-height:1.8;max-width:260px}
+.footer-col-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#E8C4B0;opacity:.55;margin-bottom:18px;font-weight:500}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:11px}
+.footer-links a{font-size:13px;color:rgba(232,196,176,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#E8C4B0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-copy{font-size:11px;color:rgba(232,196,176,.28);letter-spacing:.5px}
+.footer-social{display:flex;gap:18px}
+.footer-social a{font-size:11px;letter-spacing:1.5px;color:rgba(232,196,176,.38);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.footer-social a:hover{color:#E8C4B0}
 
-.hero-eyebrow {
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--terra);
-  font-weight: 500;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.2s forwards;
-}
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 6vw, 72px);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.4s forwards;
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--fig);
-}
-
-.hero-sub {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.6s forwards;
-}
-
-.hero-tagline {
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--stone);
-  font-weight: 300;
-  margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.7s forwards;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.9s forwards;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--fig);
-  color: #FBF7F2;
-  padding: 16px 36px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  transition: all 0.25s;
-  box-shadow: 0 8px 28px rgba(124,74,90,0.3);
-}
-.btn-primary:hover {
-  background: var(--fig2);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(124,74,90,0.4);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: var(--terra);
-  padding: 16px 36px;
-  border-radius: 50px;
-  border: 1px solid rgba(192,120,88,0.35);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  transition: all 0.25s;
-}
-.btn-secondary:hover {
-  background: rgba(192,120,88,0.06);
-  border-color: var(--terra);
-  transform: translateY(-2px);
-}
-
-.hero-bloom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  animation: fadeIn 1.2s ease 0.5s forwards;
-}
-
-.price-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(196,153,58,0.12);
-  border: 1px solid rgba(196,153,58,0.3);
-  border-radius: 50px;
-  padding: 8px 20px;
-  font-size: 12px;
-  color: var(--gold);
-  letter-spacing: 1px;
-  margin-bottom: 32px;
-  font-weight: 500;
-}
-
-/* ═══════════════════════════════════════════
-   SECTION SHARED
-═══════════════════════════════════════════ */
-section { padding: 100px 48px; }
-
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-tag {
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--terra);
-  font-weight: 500;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-tag::after {
-  content: '';
-  flex: 0 0 40px;
-  height: 1px;
-  background: var(--terra);
-  opacity: 0.4;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 20px;
-}
-.section-title em {
-  font-style: italic;
-  color: var(--fig);
-}
-
-.section-body {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.85;
-  max-width: 560px;
-}
-
-/* ═══════════════════════════════════════════
-   PULL QUOTE
-═══════════════════════════════════════════ */
-.pull-quote-section {
-  background: var(--fig);
-  padding: 80px 48px;
-}
-.pull-quote {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-.pull-quote p {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 48px);
-  font-style: italic;
-  color: #F5EFE8;
-  line-height: 1.5;
-  margin-bottom: 24px;
-}
-.pull-quote cite {
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--blush);
-  opacity: 0.65;
-  font-style: normal;
-}
-
-/* ═══════════════════════════════════════════
-   ORIGIN STORY
-═══════════════════════════════════════════ */
-.origin {
-  background: var(--sand);
-}
-.origin-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.origin-text p {
-  font-size: 17px;
-  color: var(--ink);
-  line-height: 1.9;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-}
-.origin-text p strong {
-  font-style: normal;
-  color: var(--fig);
-  font-weight: 600;
-}
-.origin-bloom {
-  display: flex;
-  justify-content: center;
-}
-.notebook-card {
-  background: var(--cream);
-  border-radius: 20px;
-  padding: 40px;
-  border: 1px solid rgba(192,120,88,0.18);
-  box-shadow: 0 8px 40px rgba(61,43,37,0.08);
-  position: relative;
-  overflow: hidden;
-}
-.notebook-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 6px; height: 100%;
-  background: linear-gradient(to bottom, var(--terra), var(--fig));
-  border-radius: 20px 0 0 20px;
-}
-.notebook-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: var(--stone);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  padding-left: 20px;
-}
-.notebook-entry {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(192,120,88,0.1);
-  font-family: 'Playfair Display', serif;
-}
-.notebook-date {
-  font-size: 13px;
-  color: var(--muted);
-  min-width: 80px;
-}
-.notebook-initial {
-  font-size: 20px;
-  color: var(--terra);
-  font-weight: 600;
-  min-width: 32px;
-}
-.notebook-dot {
-  font-size: 18px;
-}
-
-/* ═══════════════════════════════════════════
-   FEATURES
-═══════════════════════════════════════════ */
-.features { background: var(--cream); }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 60px;
-}
-.feature-card {
-  background: var(--sand);
-  border-radius: 20px;
-  padding: 40px 32px;
-  border: 1px solid rgba(192,120,88,0.14);
-  transition: all 0.3s ease;
-}
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(61,43,37,0.1);
-  border-color: rgba(192,120,88,0.3);
-}
-.feature-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
-  display: block;
-}
-.feature-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-.feature-body {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-/* ═══════════════════════════════════════════
-   PRIVACY PROMISE
-═══════════════════════════════════════════ */
-.privacy { background: var(--ink); }
-.privacy .section-tag { color: var(--blush); }
-.privacy .section-tag::after { background: var(--blush); }
-.privacy .section-title { color: #F5EFE8; }
-.privacy .section-title em { color: var(--blush); }
-.privacy .section-body { color: rgba(232,196,176,0.7); }
-
-.privacy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-.privacy-item {
-  background: rgba(245,239,232,0.06);
-  border: 1px solid rgba(245,239,232,0.1);
-  border-radius: 16px;
-  padding: 32px 28px;
-}
-.privacy-item-icon {
-  font-size: 28px;
-  margin-bottom: 16px;
-  display: block;
-}
-.privacy-item-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: #F5EFE8;
-  margin-bottom: 10px;
-}
-.privacy-item-body {
-  font-size: 14px;
-  color: rgba(232,196,176,0.65);
-  line-height: 1.75;
-}
-
-/* ═══════════════════════════════════════════
-   FOR HER — WHO TATUM IS FOR
-═══════════════════════════════════════════ */
-.for-her { background: var(--sand); }
-.for-her-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 56px;
-}
-.her-card {
-  background: var(--cream);
-  border-radius: 16px;
-  padding: 32px;
-  border: 1px solid rgba(192,120,88,0.14);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  transition: all 0.25s;
-}
-.her-card:hover { border-color: var(--mauve); }
-.her-emoji { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-.her-content {}
-.her-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-.her-body {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-/* ═══════════════════════════════════════════
-   PRICING
-═══════════════════════════════════════════ */
-.pricing { background: var(--cream); }
-.pricing-card {
-  max-width: 520px;
-  margin: 56px auto 0;
-  background: var(--sand);
-  border-radius: 28px;
-  padding: 56px 48px;
-  border: 1px solid rgba(192,120,88,0.2);
-  text-align: center;
-  box-shadow: 0 16px 60px rgba(61,43,37,0.1);
-  position: relative;
-  overflow: hidden;
-}
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--terra), var(--fig), var(--gold));
-}
-.pricing-label {
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--terra);
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-.pricing-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 80px;
-  font-weight: 700;
-  color: var(--fig);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.pricing-price sup {
-  font-size: 36px;
-  vertical-align: super;
-}
-.pricing-period {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 36px;
-  font-style: italic;
-  font-family: 'Playfair Display', serif;
-}
-.pricing-features {
-  list-style: none;
-  margin-bottom: 40px;
-  text-align: left;
-}
-.pricing-features li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(192,120,88,0.1);
-  font-size: 15px;
-  color: var(--ink);
-}
-.pricing-features li:last-child { border-bottom: none; }
-.pricing-check {
-  color: var(--terra);
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.pricing-btn {
-  display: block;
-  width: 100%;
-  background: var(--fig);
-  color: #F5EFE8;
-  padding: 18px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-decoration: none;
-  transition: all 0.25s;
-  box-shadow: 0 8px 28px rgba(124,74,90,0.3);
-  margin-bottom: 16px;
-}
-.pricing-btn:hover {
-  background: var(--fig2);
-  transform: translateY(-2px);
-}
-.pricing-note {
-  font-size: 12px;
-  color: var(--stone);
-  letter-spacing: 0.5px;
-}
-
-/* ═══════════════════════════════════════════
-   FOUNDER
-═══════════════════════════════════════════ */
-.founder {
-  background: linear-gradient(160deg, var(--fig) 0%, var(--fig2) 100%);
-  padding: 100px 48px;
-}
-.founder-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.founder-bloom {
-  margin: 0 auto 40px;
-}
-.founder-tag {
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--blush);
-  opacity: 0.6;
-  margin-bottom: 20px;
-}
-.founder-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 42px);
-  font-style: italic;
-  color: #F5EFE8;
-  line-height: 1.5;
-  margin-bottom: 32px;
-}
-.founder-body {
-  font-size: 16px;
-  color: rgba(232,196,176,0.8);
-  line-height: 1.9;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-}
-.founder-sig {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: var(--blush);
-  margin-top: 40px;
-}
-.founder-sig-title {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(232,196,176,0.5);
-  margin-top: 6px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-}
-
-/* ═══════════════════════════════════════════
-   CTA FOOTER SECTION
-═══════════════════════════════════════════ */
-.cta-section {
-  background: var(--sand);
-  text-align: center;
-  padding: 120px 48px;
-}
-.cta-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 5vw, 60px);
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 16px;
-  line-height: 1.15;
-}
-.cta-title em { font-style: italic; color: var(--fig); }
-.cta-sub {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--muted);
-  margin-bottom: 48px;
-}
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-footer {
-  background: var(--ink);
-  padding: 60px 48px 40px;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(245,239,232,0.1);
-  margin-bottom: 32px;
-}
-.footer-brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  color: var(--terra);
-  margin-bottom: 8px;
-}
-.footer-tagline {
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: rgba(232,196,176,0.5);
-  font-style: italic;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
-}
-.footer-desc {
-  font-size: 14px;
-  color: rgba(232,196,176,0.55);
-  line-height: 1.8;
-  max-width: 280px;
-}
-.footer-col-title {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--blush);
-  opacity: 0.6;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a {
-  font-size: 14px;
-  color: rgba(232,196,176,0.55);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--blush); }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.footer-copy {
-  font-size: 12px;
-  color: rgba(232,196,176,0.3);
-  letter-spacing: 0.5px;
-}
-.footer-social {
-  display: flex;
-  gap: 20px;
-}
-.footer-social a {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: rgba(232,196,176,0.4);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.footer-social a:hover { color: var(--blush); }
-
-/* ═══════════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════════ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-16px); }
-}
-.hero-bloom svg { animation: float 6s ease-in-out infinite; }
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-@media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  section { padding: 72px 24px; }
-  .hero { padding: 100px 24px 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
-  .hero-bloom { order: -1; }
-  .hero-buttons { justify-content: center; }
-  .origin-grid { grid-template-columns: 1fr; gap: 48px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .privacy-grid { grid-template-columns: 1fr; }
-  .for-her-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .pull-quote-section { padding: 60px 24px; }
-  .founder { padding: 80px 24px; }
-  .cta-section { padding: 80px 24px; }
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:14px 5%}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:90px 5% 60px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:36px;text-align:center}
+  .hero-bloom{order:-1}
+  .hero-bloom svg{width:min(260px,80vw)!important;height:auto!important}
+  .hero-buttons{justify-content:center}
+  .hero-buttons .btn-primary,.hero-buttons .btn-secondary{width:100%;justify-content:center}
+  .section{padding:64px 5%}
+  .origin-grid{grid-template-columns:1fr;gap:36px}
+  .notebook-card{padding:24px 18px}
+  .features-grid{grid-template-columns:1fr;gap:16px}
+  .privacy-grid{grid-template-columns:1fr;gap:14px}
+  .for-her-grid{grid-template-columns:1fr;gap:14px}
+  .pricing-card{padding:36px 22px;margin-top:36px}
+  .pricing-price{font-size:60px}
+  .founder{padding:72px 5%}
+  .cta-section{padding:80px 5%}
+  .cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-desc{max-width:100%}
+  .pull-quote-section{padding:60px 5%}
+  .section-tag{font-size:9px}
+  footer{padding:48px 5% 28px}
+}
+@media(max-width:480px){
+  .hero-title{font-size:36px}
+  .pricing-card{padding:28px 18px}
+  .founder-title{font-size:22px}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════ -->
-<!-- NAV                                    -->
-<!-- ══════════════════════════════════════ -->
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#story" onclick="closeMobileMenu()">Our Story</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#privacy" onclick="closeMobileMenu()">Privacy</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#download" onclick="closeMobileMenu()">Download</a>
+</div>
+
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-brand">
-    <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg width="26" height="26" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <radialGradient id="nT" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#D89070"/><stop offset="100%" stop-color="#A85E38"/></radialGradient>
         <radialGradient id="nF" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#9E6278"/><stop offset="100%" stop-color="#62324A"/></radialGradient>
@@ -891,355 +251,200 @@ footer {
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#download" class="nav-cta">Download</a></li>
   </ul>
+  <div class="hamburger" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<!-- ══════════════════════════════════════ -->
-<!-- HERO                                   -->
-<!-- ══════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-eyebrow">Telling A Truth Uniquely Mine</div>
-      <h1 class="hero-title">
-        Your story.<br>
-        Your proof.<br>
-        <em>Your power.</em>
-      </h1>
-      <p class="hero-sub">
-        A private intimacy tracker built for women who deserve to finally see the truth about themselves.
-      </p>
-      <div class="hero-tagline">No accounts &nbsp;·&nbsp; No cloud &nbsp;·&nbsp; Only yours</div>
-      <div class="price-badge">
-        ✦ &nbsp; One-time purchase &nbsp;·&nbsp; $24.99 &nbsp;·&nbsp; Yours forever
-      </div>
+      <h1 class="hero-title">Your story.<br>Your proof.<br><em>Your power.</em></h1>
+      <p class="hero-sub">A private intimacy tracker built for women who deserve to finally see the truth about themselves.</p>
+      <div class="hero-privacy">No accounts &nbsp;·&nbsp; No cloud &nbsp;·&nbsp; Only yours</div>
+      <div class="price-badge">✦ &nbsp;One-time purchase &nbsp;·&nbsp; $24.99 &nbsp;·&nbsp; Yours forever</div>
       <div class="hero-buttons" id="download">
-        <a href="#" class="btn-primary">
-          ⬇ &nbsp; Download for iOS
-        </a>
-        <a href="#" class="btn-secondary">
-          ⬇ &nbsp; Download for Android
-        </a>
+        <a href="#" class="btn-primary">⬇ &nbsp;Download for iOS</a>
+        <a href="#" class="btn-secondary">⬇ &nbsp;Download for Android</a>
       </div>
     </div>
-
     <div class="hero-bloom">
-      <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <svg class="bloom-float" width="380" height="380" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
         <defs>
-          <radialGradient id="hbg" cx="50%" cy="45%" r="75%">
-            <stop offset="0%" stop-color="#FAF7F2"/><stop offset="100%" stop-color="#EDE3D8"/>
-          </radialGradient>
           <radialGradient id="hT" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#D89070"/><stop offset="100%" stop-color="#A85E38"/></radialGradient>
           <radialGradient id="hF" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#9E6278"/><stop offset="100%" stop-color="#62324A"/></radialGradient>
           <radialGradient id="hM" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#CC9298"/><stop offset="100%" stop-color="#925868"/></radialGradient>
           <radialGradient id="hB" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#E8C4B0"/><stop offset="100%" stop-color="#C89880"/></radialGradient>
           <radialGradient id="hG" cx="28%" cy="28%" r="72%"><stop offset="0%" stop-color="#DFBB58"/><stop offset="100%" stop-color="#A87E20"/></radialGradient>
-          <filter id="hsh"><feDropShadow dx="0" dy="12" stdDeviation="28" flood-color="#7C4A5A" flood-opacity="0.2"/></filter>
-          <filter id="hcg"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="hsh"><feDropShadow dx="0" dy="10" stdDeviation="24" flood-color="#7C4A5A" flood-opacity="0.18"/></filter>
+          <filter id="hcg"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
-        <circle cx="200" cy="200" r="185" fill="#F5EFE8" filter="url(#hsh)"/>
-        <circle cx="200" cy="200" r="183" fill="none" stroke="#C07858" stroke-width="1.5" stroke-opacity="0.28"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hM)" opacity="0.84" transform="rotate(0 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hT)" opacity="0.82" transform="rotate(45 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hF)" opacity="0.80" transform="rotate(90 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hB)" opacity="0.78" transform="rotate(135 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hM)" opacity="0.76" transform="rotate(180 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hT)" opacity="0.78" transform="rotate(225 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hF)" opacity="0.80" transform="rotate(270 200 200)"/>
-        <ellipse cx="200" cy="105" rx="22" ry="46" fill="url(#hB)" opacity="0.78" transform="rotate(315 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hF)" opacity="0.34" transform="rotate(22.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hM)" opacity="0.31" transform="rotate(67.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hT)" opacity="0.29" transform="rotate(112.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hF)" opacity="0.31" transform="rotate(157.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hM)" opacity="0.29" transform="rotate(202.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hT)" opacity="0.31" transform="rotate(247.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hF)" opacity="0.29" transform="rotate(292.5 200 200)"/>
-        <ellipse cx="200" cy="135" rx="13" ry="30" fill="url(#hM)" opacity="0.31" transform="rotate(337.5 200 200)"/>
+        <circle cx="200" cy="200" r="182" fill="#F5EFE8" filter="url(#hsh)"/>
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#C07858" stroke-width="1.2" stroke-opacity="0.25"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hM)" opacity="0.84" transform="rotate(0 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hT)" opacity="0.82" transform="rotate(45 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hF)" opacity="0.80" transform="rotate(90 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hB)" opacity="0.78" transform="rotate(135 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hM)" opacity="0.76" transform="rotate(180 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hT)" opacity="0.78" transform="rotate(225 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hF)" opacity="0.80" transform="rotate(270 200 200)"/>
+        <ellipse cx="200" cy="107" rx="22" ry="46" fill="url(#hB)" opacity="0.78" transform="rotate(315 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hF)" opacity="0.32" transform="rotate(22.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hM)" opacity="0.30" transform="rotate(67.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hT)" opacity="0.28" transform="rotate(112.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hF)" opacity="0.30" transform="rotate(157.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hM)" opacity="0.28" transform="rotate(202.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hT)" opacity="0.30" transform="rotate(247.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hF)" opacity="0.28" transform="rotate(292.5 200 200)"/>
+        <ellipse cx="200" cy="138" rx="13" ry="29" fill="url(#hM)" opacity="0.30" transform="rotate(337.5 200 200)"/>
         <circle cx="200" cy="200" r="26" fill="url(#hG)" filter="url(#hcg)"/>
-        <circle cx="200" cy="200" r="14" fill="#F5EFE8" opacity="0.55"/>
+        <circle cx="200" cy="200" r="14" fill="#F5EFE8" opacity="0.52"/>
         <circle cx="200" cy="200" r="6.5" fill="url(#hG)" opacity="0.88"/>
       </svg>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PULL QUOTE                             -->
-<!-- ══════════════════════════════════════ -->
+<!-- PULL QUOTE -->
 <div class="pull-quote-section">
   <div class="pull-quote">
-    <p>"You have always been showing up. Nobody was keeping track. Until now."</p>
+    <p>"You have always been showing up.<br>Nobody was keeping track. Until now."</p>
     <cite>— Tatum</cite>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- ORIGIN STORY                           -->
-<!-- ══════════════════════════════════════ -->
-<section class="origin" id="story">
+<!-- ORIGIN -->
+<section class="section origin" id="story">
   <div class="section-inner">
     <div class="origin-grid">
       <div class="origin-text">
         <div class="section-tag">The Story Behind Tatum</div>
         <h2 class="section-title">It started as a notebook <em>in a nightstand.</em></h2>
         <p>There was a season where I was being made to feel like I wasn't offering enough of myself. The comments landed wrong. And like most women, I got quiet and started to believe it.</p>
-        <p>So I accepted a challenge — not to do more, but to finally see clearly what I was already doing. I grabbed a notebook from my nightstand and started writing down dates. Just the date, and a simple initial next to it. My own private shorthand.</p>
+        <p>So I accepted a challenge — not to do more, but to finally see clearly what I was already doing. I grabbed a notebook from my nightstand and started writing down dates. Just the date, and a simple initial next to it.</p>
         <p>When I looked back at those pages, <strong>what I saw stopped me completely.</strong> I had been showing up all along. The proof was right there in my own handwriting.</p>
-        <p><strong>Challenge accepted. And challenge met.</strong> That notebook became Tatum — because I knew I wasn't the only woman who needed to see this.</p>
+        <p><strong>Challenge accepted. And challenge met.</strong> That notebook became Tatum.</p>
       </div>
-      <div class="origin-bloom">
+      <div>
         <div class="notebook-card">
           <div class="notebook-title">My Nightstand Notebook</div>
-          <div class="notebook-entry">
-            <span class="notebook-date">Feb 3</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">🍆 💋</span>
-          </div>
-          <div class="notebook-entry">
-            <span class="notebook-date">Feb 7</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">✨</span>
-          </div>
-          <div class="notebook-entry">
-            <span class="notebook-date">Feb 10</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">🍆 😘</span>
-          </div>
-          <div class="notebook-entry">
-            <span class="notebook-date">Feb 14</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">🌙 💋</span>
-          </div>
-          <div class="notebook-entry">
-            <span class="notebook-date">Feb 18</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">🍆</span>
-          </div>
-          <div class="notebook-entry" style="border-bottom:none;">
-            <span class="notebook-date">Feb 24</span>
-            <span class="notebook-initial">M</span>
-            <span class="notebook-dot">✨ 😘</span>
-          </div>
-          <div style="margin-top:24px;padding:16px;background:rgba(192,120,88,0.08);border-radius:12px;text-align:center;">
-            <div style="font-family:'Playfair Display',serif;font-size:13px;color:#7C4A5A;font-style:italic;">"I was showing up. I always had been."</div>
-          </div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 3</span><span class="notebook-initial">M</span><span class="notebook-dot">🍆 💋</span></div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 7</span><span class="notebook-initial">M</span><span class="notebook-dot">✨</span></div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 10</span><span class="notebook-initial">M</span><span class="notebook-dot">🍆 😘</span></div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 14</span><span class="notebook-initial">M</span><span class="notebook-dot">🌙 💋</span></div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 18</span><span class="notebook-initial">M</span><span class="notebook-dot">🍆</span></div>
+          <div class="notebook-entry"><span class="notebook-date">Feb 24</span><span class="notebook-initial">M</span><span class="notebook-dot">✨ 😘</span></div>
+          <div class="notebook-quote">"I was showing up. I always had been."</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- FEATURES                               -->
-<!-- ══════════════════════════════════════ -->
-<section class="features" id="features">
+<!-- FEATURES -->
+<section class="section features" id="features">
   <div class="section-inner">
     <div class="section-tag">What Tatum Does</div>
     <h2 class="section-title">Everything you need to see <em>your truth.</em></h2>
-    <p class="section-body">Simple, beautiful, and completely private. Every feature in Tatum was designed with one question — does this help her see herself more clearly?</p>
+    <p class="section-body">Simple, beautiful, and completely private. Every feature was designed around one question — does this help her see herself more clearly?</p>
     <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">📅</span>
-        <div class="feature-title">Calendar View</div>
-        <div class="feature-body">Your default home screen. Open Tatum and see your month at a glance — every date you showed up, marked quietly in your own private shorthand.</div>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">✏️</span>
-        <div class="feature-title">Quick Log</div>
-        <div class="feature-body">Tap a date, tap an emoji, save. Logging takes under 30 seconds. The faster it is, the more consistently you will do it — and the clearer your story becomes.</div>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">👤</span>
-        <div class="feature-title">Partner Profiles</div>
-        <div class="feature-body">Create profiles for the people in your life using only an initial or emoji. See patterns by partner. Your data, your language, nobody else's labels.</div>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📊</span>
-        <div class="feature-title">Insights Dashboard</div>
-        <div class="feature-body">Look back at a week, a month, a year. See your patterns emerge over time. This is where the proof lives — your real story told in your own data.</div>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">😊</span>
-        <div class="feature-title">Emotional Tags</div>
-        <div class="feature-body">Log not just what happened but how it felt. Passionate, playful, tender, emotional. Tatum is the first tracker that asks about the feeling, not just the fact.</div>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📖</span>
-        <div class="feature-title">Private Journal</div>
-        <div class="feature-body">Add a note to any entry. A sentence, a feeling, a memory. Only you ever read it. Your most private thoughts, kept exactly where they belong.</div>
-      </div>
+      <div class="feature-card"><span class="feature-icon">📅</span><div class="feature-title">Calendar View</div><div class="feature-body">Your default home screen. Open Tatum and see your month at a glance — every date you showed up, marked quietly in your own private shorthand.</div></div>
+      <div class="feature-card"><span class="feature-icon">✏️</span><div class="feature-title">Quick Log</div><div class="feature-body">Tap a date, tap an emoji, save. Logging takes under 30 seconds. The faster it is, the more consistently you do it — and the clearer your story becomes.</div></div>
+      <div class="feature-card"><span class="feature-icon">👤</span><div class="feature-title">Partner Profiles</div><div class="feature-body">Create profiles using only an initial or emoji. See patterns by partner. Your data, your language, nobody else's labels.</div></div>
+      <div class="feature-card"><span class="feature-icon">📊</span><div class="feature-title">Insights Dashboard</div><div class="feature-body">Look back at a week, a month, a year. See your patterns emerge over time. This is where the proof lives — your real story in your own data.</div></div>
+      <div class="feature-card"><span class="feature-icon">😊</span><div class="feature-title">Emotional Tags</div><div class="feature-body">Log not just what happened but how it felt. Passionate, playful, tender, emotional. Tatum is the first tracker that asks about the feeling.</div></div>
+      <div class="feature-card"><span class="feature-icon">📖</span><div class="feature-title">Private Journal</div><div class="feature-body">Add a note to any entry. A sentence, a feeling, a memory. Only you ever read it. Your most private thoughts, kept exactly where they belong.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PRIVACY                                -->
-<!-- ══════════════════════════════════════ -->
-<section class="privacy" id="privacy">
+<!-- PRIVACY -->
+<section class="section privacy-section" id="privacy">
   <div class="section-inner">
     <div class="section-tag">Privacy First. Always.</div>
     <h2 class="section-title">Your intimate life belongs <em>to you.</em></h2>
-    <p class="section-body">Tatum was built on one non-negotiable promise. Your data never leaves your device. We cannot see it. Nobody can. Ever.</p>
+    <p class="section-body">Your data never leaves your device. We cannot see it. Nobody can. Ever.</p>
     <div class="privacy-grid">
-      <div class="privacy-item">
-        <span class="privacy-item-icon">🔒</span>
-        <div class="privacy-item-title">On-Device Only</div>
-        <div class="privacy-item-body">Everything you log stays on your phone. No servers. No cloud backup. No database. If you delete the app, the data goes with it.</div>
-      </div>
-      <div class="privacy-item">
-        <span class="privacy-item-icon">👤</span>
-        <div class="privacy-item-title">No Account Required</div>
-        <div class="privacy-item-body">No email address. No username. No registration of any kind. Tatum does not know who you are and that is exactly the point.</div>
-      </div>
-      <div class="privacy-item">
-        <span class="privacy-item-icon">🤫</span>
-        <div class="privacy-item-title">Biometric Lock</div>
-        <div class="privacy-item-body">Face ID, Touch ID, or passcode protects the app every time it opens. Your partner, your kids, anyone who picks up your phone — they cannot get in.</div>
-      </div>
-      <div class="privacy-item">
-        <span class="privacy-item-icon">🚫</span>
-        <div class="privacy-item-title">No Data Sales. Ever.</div>
-        <div class="privacy-item-body">We will never sell your data. We will never share it. We will never use it for advertising. Your truth is yours. Full stop.</div>
-      </div>
-      <div class="privacy-item">
-        <span class="privacy-item-icon">📱</span>
-        <div class="privacy-item-title">Discreet Icon</div>
-        <div class="privacy-item-body">The app icon is a simple bloom mark. Nothing about it announces what the app is. Your privacy starts before you even open it.</div>
-      </div>
-      <div class="privacy-item">
-        <span class="privacy-item-icon">✦</span>
-        <div class="privacy-item-title">No Breach Risk</div>
-        <div class="privacy-item-body">Data that never travels cannot be intercepted. Because your intimate data never leaves your device, it cannot be exposed in a server-side breach.</div>
-      </div>
+      <div class="privacy-item"><span class="privacy-item-icon">🔒</span><div class="privacy-item-title">On-Device Only</div><div class="privacy-item-body">Everything you log stays on your phone. No servers. No cloud backup. No database of any kind.</div></div>
+      <div class="privacy-item"><span class="privacy-item-icon">👤</span><div class="privacy-item-title">No Account Required</div><div class="privacy-item-body">No email. No username. No registration. Tatum does not know who you are and that is exactly the point.</div></div>
+      <div class="privacy-item"><span class="privacy-item-icon">🤫</span><div class="privacy-item-title">Biometric Lock</div><div class="privacy-item-body">Face ID, Touch ID, or passcode protects the app every time it opens. Anyone who picks up your phone cannot get in.</div></div>
+      <div class="privacy-item"><span class="privacy-item-icon">🚫</span><div class="privacy-item-title">No Data Sales. Ever.</div><div class="privacy-item-body">We will never sell your data. Never share it. Never use it for advertising. Your truth is yours. Full stop.</div></div>
+      <div class="privacy-item"><span class="privacy-item-icon">📱</span><div class="privacy-item-title">Discreet Icon</div><div class="privacy-item-body">The app icon is a simple bloom mark. Nothing about it announces what the app is. Your privacy starts before you open it.</div></div>
+      <div class="privacy-item"><span class="privacy-item-icon">✦</span><div class="privacy-item-title">No Breach Risk</div><div class="privacy-item-body">Data that never travels cannot be exposed. Because your data never leaves your device it cannot be intercepted.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- FOR HER                                -->
-<!-- ══════════════════════════════════════ -->
-<section class="for-her">
+<!-- FOR HER -->
+<section class="section for-her">
   <div class="section-inner">
     <div class="section-tag">Who Tatum Is For</div>
     <h2 class="section-title">She built it for <em>every one of you.</em></h2>
     <div class="for-her-grid">
-      <div class="her-card">
-        <span class="her-emoji">👶</span>
-        <div class="her-content">
-          <div class="her-title">The New Mom</div>
-          <div class="her-body">Running on empty and still showing up. Tatum gives you proof of what you are giving even in the hardest season.</div>
-        </div>
-      </div>
-      <div class="her-card">
-        <span class="her-emoji">💍</span>
-        <div class="her-content">
-          <div class="her-title">The Wife & Partner</div>
-          <div class="her-body">Made to feel like you are not enough? Your calendar will tell you a completely different story.</div>
-        </div>
-      </div>
-      <div class="her-card">
-        <span class="her-emoji">💼</span>
-        <div class="her-content">
-          <div class="her-title">The Working Woman</div>
-          <div class="her-body">Carrying everything at once. Tatum is the one place that is just for you — no judgment, no pressure, only truth.</div>
-        </div>
-      </div>
-      <div class="her-card">
-        <span class="her-emoji">🌸</span>
-        <div class="her-content">
-          <div class="her-title">The Woman Dating</div>
-          <div class="her-body">Living life on your own terms. Tatum is your private record — completely yours, no labels, no commentary from anyone else.</div>
-        </div>
-      </div>
+      <div class="her-card"><span class="her-emoji">👶</span><div><div class="her-title">The New Mom</div><div class="her-body">Running on empty and still showing up. Tatum gives you proof of what you are giving even in the hardest season.</div></div></div>
+      <div class="her-card"><span class="her-emoji">💍</span><div><div class="her-title">The Wife & Partner</div><div class="her-body">Made to feel like you are not enough? Your calendar will tell you a completely different story.</div></div></div>
+      <div class="her-card"><span class="her-emoji">💼</span><div><div class="her-title">The Working Woman</div><div class="her-body">Carrying everything at once. Tatum is the one place that is just for you — no judgment, no pressure, only truth.</div></div></div>
+      <div class="her-card"><span class="her-emoji">🌸</span><div><div class="her-title">The Woman Dating</div><div class="her-body">Living life on your own terms. Tatum is your private record — completely yours, no labels, no commentary.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- PRICING                                -->
-<!-- ══════════════════════════════════════ -->
-<section class="pricing" id="pricing">
-  <div class="section-inner" style="text-align:center;">
-    <div class="section-tag" style="justify-content:center;">Simple & Honest Pricing</div>
-    <h2 class="section-title">One price. <em>Everything included.</em></h2>
-    <p class="section-body" style="margin:0 auto;">No subscriptions. No tiers. No hidden fees. Pay once and Tatum is yours forever.</p>
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-tag" style="justify-content:center">Simple & Honest Pricing</div>
+    <h2 class="section-title" style="text-align:center">One price. <em>Everything included.</em></h2>
+    <p class="section-body" style="margin:0 auto;text-align:center">No subscriptions. No tiers. No hidden fees. Pay once and Tatum is yours forever.</p>
     <div class="pricing-card">
       <div class="pricing-label">Tatum — Full App</div>
       <div class="pricing-price"><sup>$</sup>24.99</div>
       <div class="pricing-period">One-time purchase · Yours forever</div>
       <ul class="pricing-features">
-        <li><span class="pricing-check">✦</span> Calendar view — your proof at a glance</li>
-        <li><span class="pricing-check">✦</span> Quick log — under 30 seconds to log</li>
-        <li><span class="pricing-check">✦</span> Partner profiles with initials and emojis</li>
-        <li><span class="pricing-check">✦</span> Emotional tone tags</li>
-        <li><span class="pricing-check">✦</span> Insights dashboard — weekly, monthly, yearly</li>
-        <li><span class="pricing-check">✦</span> Private journal entries</li>
-        <li><span class="pricing-check">✦</span> Data export</li>
-        <li><span class="pricing-check">✦</span> Face ID / Touch ID / passcode lock</li>
-        <li><span class="pricing-check">✦</span> iOS and Android</li>
-        <li><span class="pricing-check">✦</span> All future updates included</li>
+        <li><span class="pricing-check">✦</span>Calendar view — your proof at a glance</li>
+        <li><span class="pricing-check">✦</span>Quick log — under 30 seconds</li>
+        <li><span class="pricing-check">✦</span>Partner profiles with initials and emojis</li>
+        <li><span class="pricing-check">✦</span>Emotional tone tags</li>
+        <li><span class="pricing-check">✦</span>Insights dashboard — weekly, monthly, yearly</li>
+        <li><span class="pricing-check">✦</span>Private journal entries</li>
+        <li><span class="pricing-check">✦</span>Data export</li>
+        <li><span class="pricing-check">✦</span>Face ID / Touch ID / passcode lock</li>
+        <li><span class="pricing-check">✦</span>iOS and Android</li>
+        <li><span class="pricing-check">✦</span>All future updates included</li>
       </ul>
       <a href="#" class="pricing-btn">Download Tatum — $24.99</a>
-      <div class="pricing-note">Available on the App Store and Google Play &nbsp;·&nbsp; No subscription ever</div>
+      <div class="pricing-note">Available on the App Store and Google Play · No subscription ever</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- FOUNDER                                -->
-<!-- ══════════════════════════════════════ -->
+<!-- FOUNDER -->
 <section class="founder">
   <div class="founder-inner">
-    <div class="founder-bloom">
-      <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="fL1" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#F0D8C8"/><stop offset="100%" stop-color="#D0A888"/></radialGradient>
-          <radialGradient id="fGL" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#F0D070"/><stop offset="100%" stop-color="#C8A040"/></radialGradient>
-          <radialGradient id="fL2" cx="38%" cy="32%" r="68%"><stop offset="0%" stop-color="#E8C8D0"/><stop offset="100%" stop-color="#C09898"/></radialGradient>
-          <radialGradient id="fG" cx="28%" cy="28%" r="72%"><stop offset="0%" stop-color="#DFBB58"/><stop offset="100%" stop-color="#A87E20"/></radialGradient>
-          <filter id="fcg"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fL1)" opacity="0.72" transform="rotate(0 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fGL)" opacity="0.68" transform="rotate(45 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fL2)" opacity="0.65" transform="rotate(90 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fL1)" opacity="0.62" transform="rotate(135 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fGL)" opacity="0.65" transform="rotate(180 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fL2)" opacity="0.62" transform="rotate(225 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fL1)" opacity="0.65" transform="rotate(270 50 50)"/>
-        <ellipse cx="50" cy="19" rx="8" ry="16" fill="url(#fGL)" opacity="0.62" transform="rotate(315 50 50)"/>
-        <circle cx="50" cy="50" r="9" fill="url(#fG)" filter="url(#fcg)"/>
-        <circle cx="50" cy="50" r="5" fill="#5A3040" opacity="0.4"/>
-        <circle cx="50" cy="50" r="2.5" fill="url(#fG)" opacity="0.9"/>
-      </svg>
-    </div>
     <div class="founder-tag">From the Founder</div>
     <div class="founder-title">"I am not a Silicon Valley startup. I am a regular woman who lived something painful and decided to turn it into something that could help every woman who has ever felt the same way."</div>
     <div class="founder-body">Every decision in this app — the colors, the privacy, the emojis, the calendar, every word you read inside it — was made by me, for you, with nothing but love and the receipts to back it up.</div>
-    <div class="founder-body">As an independent developer, every single download means more to me than you know. And every woman you share this with is a woman who gets to finally see herself clearly.</div>
+    <div class="founder-body">As an independent developer, every single download means more to me than you know.</div>
     <div class="founder-sig">Alanna Small</div>
-    <div class="founder-sig-title">Founder & CEO &nbsp;·&nbsp; Tatum App LLC &nbsp;·&nbsp; Independent Developer</div>
+    <div class="founder-sig-title">Founder & CEO · Tatum App LLC · Independent Developer</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- CTA                                    -->
-<!-- ══════════════════════════════════════ -->
+<!-- CTA -->
 <section class="cta-section">
   <div class="section-inner">
     <h2 class="cta-title">You have always been enough.<br><em>Tatum proves it.</em></h2>
-    <p class="cta-sub">Download today. Give it a full month. Then see what your calendar shows you.</p>
+    <p class="cta-sub">Download today. Give it a full month. See what your calendar shows you.</p>
     <div class="cta-buttons">
-      <a href="#" class="btn-primary">⬇ &nbsp; Download for iOS</a>
-      <a href="#" class="btn-secondary">⬇ &nbsp; Download for Android</a>
+      <a href="#" class="btn-primary">⬇ &nbsp;Download for iOS</a>
+      <a href="#" class="btn-secondary">⬇ &nbsp;Download for Android</a>
     </div>
-    <div style="margin-top:32px;font-size:12px;color:var(--stone);letter-spacing:1px;">
-      $24.99 &nbsp;·&nbsp; One-time &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; Yours forever
-    </div>
+    <div class="cta-note">$24.99 · One-time · No subscription · Yours forever</div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- FOOTER                                 -->
-<!-- ══════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -1259,10 +464,10 @@ footer {
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Legal</div>
+        <div class="footer-col-title">Legal & Contact</div>
         <ul class="footer-links">
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms & Conditions</a></li>
           <li><a href="mailto:tatum.app.official@gmail.com">Contact Us</a></li>
         </ul>
       </div>
@@ -1270,13 +475,17 @@ footer {
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Tatum App LLC · Pennsylvania · All rights reserved</div>
       <div class="footer-social">
-        <a href="https://instagram.com/thetatumapp" target="_blank">Instagram</a>
-        <a href="https://tiktok.com/@tatum.app" target="_blank">TikTok</a>
-        <a href="https://facebook.com/thetatumapp" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/thetatumapp/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@tatum.app" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/thetatumapp" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script>
+function openMobileMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+</script>
 </body>
 </html>
