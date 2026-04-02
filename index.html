@@ -23,6 +23,11 @@ body{background:#FBF7F2;color:#3D2B25;font-family:'DM Sans',sans-serif;font-weig
 }
 img,svg{max-width:100%;height:auto}
 
+.launch-note{margin-top:16px;font-size:13px;color:var(--stone);letter-spacing:.3px}
+.launch-note a{color:var(--terra);text-decoration:none;border-bottom:1px solid rgba(192,120,88,0.3);padding-bottom:1px;transition:all .2s}
+.launch-note a:hover{color:var(--fig);border-color:var(--fig)}
+
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(251,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,120,88,0.12)}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -269,6 +274,7 @@ footer{background:#3D2B25;padding:60px 5% 36px}
         <a href="#" class="btn-primary">⬇ &nbsp;Download for iOS</a>
         <a href="#" class="btn-secondary">⬇ &nbsp;Download for Android</a>
       </div>
+      <div class="launch-note">🌸 &nbsp;Launching soon — <a href="https://www.instagram.com/tatum.app.official/" target="_blank" rel="noopener noreferrer">follow us on Instagram</a> for the release date</div>
     </div>
     <div class="hero-bloom">
       <svg class="bloom-float" width="380" height="380" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
@@ -383,7 +389,7 @@ footer{background:#3D2B25;padding:60px 5% 36px}
     <div class="section-tag">Who Tatum Is For</div>
     <h2 class="section-title">She built it for <em>every one of you.</em></h2>
     <div class="for-her-grid">
-      <div class="her-card"><span class="her-emoji">👶</span><div><div class="her-title">The New Mom</div><div class="her-body">Running on empty and still showing up. Tatum gives you proof of what you are giving even in the hardest season.</div></div></div>
+      <div class="her-card"><span class="her-emoji">🤱</span><div><div class="her-title">The New Mom</div><div class="her-body">Running on empty and still showing up. Tatum gives you proof of what you are giving even in the hardest season.</div></div></div>
       <div class="her-card"><span class="her-emoji">💍</span><div><div class="her-title">The Wife & Partner</div><div class="her-body">Made to feel like you are not enough? Your calendar will tell you a completely different story.</div></div></div>
       <div class="her-card"><span class="her-emoji">💼</span><div><div class="her-title">The Working Woman</div><div class="her-body">Carrying everything at once. Tatum is the one place that is just for you — no judgment, no pressure, only truth.</div></div></div>
       <div class="her-card"><span class="her-emoji">🌸</span><div><div class="her-title">The Woman Dating</div><div class="her-body">Living life on your own terms. Tatum is your private record — completely yours, no labels, no commentary.</div></div></div>
@@ -440,9 +446,52 @@ footer{background:#3D2B25;padding:60px 5% 36px}
       <a href="#" class="btn-primary">⬇ &nbsp;Download for iOS</a>
       <a href="#" class="btn-secondary">⬇ &nbsp;Download for Android</a>
     </div>
+    <div class="launch-note" style="margin-top:20px;">🌸 &nbsp;Launching soon — <a href="https://www.instagram.com/tatum.app.official/" target="_blank" rel="noopener noreferrer" style="color:var(--terra);">follow us on Instagram</a> for the release date</div>
     <div class="cta-note">$24.99 · One-time · No subscription · Yours forever</div>
   </div>
 </section>
+
+
+<!-- EMAIL CAPTURE -->
+<section style="background:#7C4A5A;padding:80px 5%;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#E8C4B0;opacity:.6;margin-bottom:16px;font-weight:500;">Be The First To Know</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:#F5EFE8;line-height:1.2;margin-bottom:14px;">Get notified the moment <em style="font-style:italic;color:#E8C4B0;">Tatum launches.</em></h2>
+    <p style="font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:rgba(232,196,176,.75);margin-bottom:36px;">Leave your email and you will be the first woman through the door.</p>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:480px;margin:0 auto;" onsubmit="handleSubmit(event)">
+      <input type="email" name="email" placeholder="your@email.com" required
+        style="flex:1;min-width:220px;padding:16px 22px;border-radius:50px;border:1px solid rgba(232,196,176,.3);background:rgba(245,239,232,.1);color:#F5EFE8;font-size:15px;font-family:'DM Sans',sans-serif;outline:none;"
+        onfocus="this.style.borderColor='rgba(232,196,176,.7)'"
+        onblur="this.style.borderColor='rgba(232,196,176,.3)'">
+      <button type="submit"
+        style="padding:16px 32px;border-radius:50px;border:none;background:#E8C4B0;color:#3D2B25;font-size:13px;font-weight:500;letter-spacing:1.5px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap;"
+        onmouseover="this.style.background='#F5EFE8'"
+        onmouseout="this.style.background='#E8C4B0'">Notify Me</button>
+    </form>
+    <div id="email-thanks" style="display:none;margin-top:24px;font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:#E8C4B0;">Thank you — you will be the first to know. 🌸</div>
+    <p style="margin-top:20px;font-size:11px;color:rgba(232,196,176,.4);letter-spacing:.5px;">One email only. No marketing. No spam. Just Tatum.</p>
+  </div>
+</section>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      form.style.display = 'none';
+      document.getElementById('email-thanks').style.display = 'block';
+    }
+  }).catch(() => {
+    form.style.display = 'none';
+    document.getElementById('email-thanks').style.display = 'block';
+  });
+}
+</script>
 
 <!-- FOOTER -->
 <footer>
@@ -468,24 +517,20 @@ footer{background:#3D2B25;padding:60px 5% 36px}
         <ul class="footer-links">
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms & Conditions</a></li>
-          <li><a href="mailto:tatum.app.official@gmail.com">Contact Us</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#30445144455d1e5140401e5f5656595359515c70575d51595c1e535f5d">Contact Us</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Tatum App LLC · Pennsylvania · All rights reserved</div>
       <div class="footer-social">
-        <a href="https://www.instagram.com/thetatumapp/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/tatum.app.official/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.tiktok.com/@tatum.app" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.facebook.com/thetatumapp" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.facebook.com/people/Tatum-App/61575757123255/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>
-function openMobileMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden'}
-function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function openMobileMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow=
