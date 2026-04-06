@@ -217,12 +217,12 @@ footer{background:#3D2B25;padding:60px 5% 36px}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
-  <a href="#story" onclick="closeMobileMenu()">Our Story</a>
-  <a href="#features" onclick="closeMobileMenu()">Features</a>
-  <a href="#privacy" onclick="closeMobileMenu()">Privacy</a>
-  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-  <a href="#download" onclick="closeMobileMenu()">Download</a>
+  <button class="mobile-close" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">✕</button>
+  <a href="#story" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">Our Story</a>
+  <a href="#features" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">Features</a>
+  <a href="#privacy" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">Privacy</a>
+  <a href="#pricing" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">Pricing</a>
+  <a href="#download" onclick="var m=document.getElementById('mobileMenu');m.classList.remove('open');document.body.style.overflow='';">Download</a>
 </div>
 
 <!-- NAV -->
@@ -256,7 +256,11 @@ footer{background:#3D2B25;padding:60px 5% 36px}
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#download" class="nav-cta">Download</a></li>
   </ul>
-  <div class="hamburger" onclick="openMobileMenu()">
+  <div class="hamburger" id="hamburger" onclick="
+    var m=document.getElementById('mobileMenu');
+    m.classList.add('open');
+    document.body.style.overflow='hidden';
+  ">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -512,7 +516,7 @@ footer{background:#3D2B25;padding:60px 5% 36px}
       <div class="footer-social">
         <a href="https://www.instagram.com/tatum.app.official/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.tiktok.com/@tatum.app" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.facebook.com/people/Tatum-App/61575757123255/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.facebook.com/people/Tatum-App/61575757123255" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
   </div>
