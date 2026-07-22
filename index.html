@@ -117,6 +117,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .notebook-dot{font-size:16px}
 .notebook-quote{margin-top:20px;padding:14px 16px;background:rgba(192,120,88,0.07);border-radius:12px;text-align:center;font-family:'Playfair Display',serif;font-size:13px;color:#7C4A5A;font-style:italic}
 
+/* CONFIDENCE */
+.confidence-section{background:#FBF7F2;padding:90px 5%}
+.confidence-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.confidence-quote{padding:16px;font-family:'Playfair Display',serif;font-style:italic;color:#7C4A5A;font-size:15px;line-height:1.7;border-bottom:1px solid rgba(192,120,88,0.1)}
+.confidence-quote-last{border-bottom:none}
+
 /* FEATURES */
 .features{background:#FBF7F2}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
@@ -211,7 +217,9 @@ footer{background:#3D2B25;padding:60px 5% 36px}
   .hero-buttons{justify-content:center}
   .hero-buttons .btn-primary,.hero-buttons .btn-secondary{width:100%;justify-content:center}
   .section{padding:64px 5%}
+  .confidence-section{padding:64px 5%}
   .origin-grid{grid-template-columns:1fr;gap:36px}
+  .confidence-grid{grid-template-columns:1fr;gap:32px}
   .notebook-card{padding:24px 18px}
   .features-grid{grid-template-columns:1fr;gap:16px}
   .privacy-grid{grid-template-columns:1fr;gap:14px}
@@ -451,19 +459,19 @@ footer{background:#3D2B25;padding:60px 5% 36px}
 </section>
 
 <!-- CONFIDENCE -->
-<section id="confidence" style="background:#FBF7F2;padding:90px 5%;">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+<section id="confidence" class="confidence-section">
+  <div class="confidence-grid">
     <div>
       <div class="section-tag">Confidence, Not Comparison</div>
       <h2 class="section-title">See yourself showing up — <em>for you.</em></h2>
-      <p style="font-size:16px;color:#A08878;line-height:1.85;max-width:540px;margin-bottom:18px;">Tatum was not built for scorekeeping. But there is something real about opening the app and seeing the pattern of your own life — the closeness you have built, the effort you have put in, the moments you almost forgot.</p>
-      <p style="font-size:16px;color:#A08878;line-height:1.85;max-width:540px;">For a lot of women, that visibility becomes its own kind of confidence. Not proof for anyone else. Proof for yourself that you are present in your relationships the way you want to be — and a quiet reminder, on the days you doubt it, that you already are enough.</p>
+      <p class="section-body" style="margin-bottom:18px;">Tatum was not built for scorekeeping. But there is something real about opening the app and seeing the pattern of your own life — the closeness you have built, the effort you have put in, the moments you almost forgot.</p>
+      <p class="section-body">For a lot of women, that visibility becomes its own kind of confidence. Not proof for anyone else. Proof for yourself that you are present in your relationships the way you want to be — and a quiet reminder, on the days you doubt it, that you already are enough.</p>
     </div>
     <div class="notebook-card">
       <div class="notebook-title">What Women Notice</div>
-      <div style="padding:16px;font-family:'Playfair Display',serif;font-style:italic;color:#7C4A5A;font-size:15px;line-height:1.7;border-bottom:1px solid rgba(192,120,88,0.1);">"I stopped feeling like I was behind. I could just see, in my own words, that I was already showing up."</div>
-      <div style="padding:16px;font-family:'Playfair Display',serif;font-style:italic;color:#7C4A5A;font-size:15px;line-height:1.7;border-bottom:1px solid rgba(192,120,88,0.1);">"It became less about a number and more about noticing how much closeness I actually have in my life."</div>
-      <div style="padding:16px;font-family:'Playfair Display',serif;font-style:italic;color:#7C4A5A;font-size:15px;line-height:1.7;">"My confidence did not come from anyone else's approval. It came from finally seeing my own pattern clearly."</div>
+      <div class="confidence-quote">"I stopped feeling like I was behind. I could just see, in my own words, that I was already showing up."</div>
+      <div class="confidence-quote">"It became less about a number and more about noticing how much closeness I actually have in my life."</div>
+      <div class="confidence-quote confidence-quote-last">"My confidence did not come from anyone else's approval. It came from finally seeing my own pattern clearly."</div>
     </div>
   </div>
 </section>
